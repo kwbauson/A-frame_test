@@ -33,6 +33,21 @@ jobs:
         uses: actions/checkout@v4
       - name: Setup Pages
         uses: actions/configure-pages@v5
+
+
+      - name: Generate index
+        run: |
+          for photo in photos/*;do
+            sed -i "/CREATE_INDEX/i<li><a href=\"../viewers/$photo.html\">$photo</li>" index.html
+          done
+          sed -i "/CREATE_INDEX/d" index.html
+
+      - name: Generate viewers
+        run: |
+          for photo in photos/*;do
+            :
+          done
+
       - name: Upload artifact
         uses: actions/upload-pages-artifact@v3
         with:
