@@ -49,8 +49,8 @@ jobs:
           for photo in *;do
             dest=../viewers/"$photo".html
             cp ../viewer-template.html "$dest"
-            sed -i "s/REPLACE_WITH_PHOTO/../photos/$photo" "$dest"
-            sed -i "s/REPLACE_WITH_PREVIEW/../previews/$photo" "$dest"
+            sed -i "s@REPLACE_WITH_PHOTO@../photos/$photo@" "$dest"
+            sed -i "s@REPLACE_WITH_PREVIEW@../previews/$photo@" "$dest"
           done
 
       - name: Generate previews
