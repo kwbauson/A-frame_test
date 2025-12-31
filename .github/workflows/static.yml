@@ -34,6 +34,15 @@ jobs:
       - name: Setup Pages
         uses: actions/configure-pages@v5
 
+      - uses: tailscale/github-action@v4
+        with:
+          oauth-client-id: ${{ secrets.TS_OAUTH_CLIENT_ID }}
+          oauth-secret: ${{ secrets.TS_OAUTH_SECRET }}
+          tags: tag:github-actions-test
+
+      - name: Fetch photos
+        run: |
+          # TODO
 
       - name: Generate index
         run: |
